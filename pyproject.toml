@@ -11,7 +11,6 @@ pythonpath = [
 ]
 
 [tool.poetry]
-documentation = "https://trading-212.readthedocs.io/en/latest/"
 repository = "https://github.com/niall-oc/trading212"
 
 [project]
