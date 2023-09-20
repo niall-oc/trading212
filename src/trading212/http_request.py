@@ -3,13 +3,6 @@ import json
 
 
 class Client:
-    ERROR = {
-        400: "HTTP 400: Bad Request.",
-        401: "HTTP 401: Bad API key. The API key given is invalid for this domain. ",
-        403: "HTTP 403: Scope( metadata ) missing for API key. ",
-        408: "HTTP 408: Timed-out. ",
-        429: "HTTP 429: Limited: 1 / 30s, too many requests in a short time! "
-    }
     END_POINTS = dict(
         get_exchanges='/equity/metadata/exchanges',
         get_instruments='/equity/metadata/instruments',
@@ -73,7 +66,7 @@ class Client:
         if resp.ok:
             return resp.json()
         else:
-            raise requests.HTTPError(f"{self.ERROR[resp.status_code]} - {resp.text}")
+            raise requests.HTTPError(f"HTTP {resp.status_code} - {resp.text}")
 
     def get_exchanges(self) -> dict:
         """
