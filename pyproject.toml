@@ -14,7 +14,7 @@ pythonpath = [
 repository = "https://github.com/niall-oc/trading212"
 
 [project]
-name = "trading-212"
+name = "trading212-connector"
 requires-python = ">=3.7"
 readme = "README.md"
 authors = [
