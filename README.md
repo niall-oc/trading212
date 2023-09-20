@@ -2,18 +2,42 @@
 
 This is a python wrapper for the trading 212 beta API. https://t212public-api-docs.redoc.ly/
 
-### get_exchanges()
+## DISCLAIMER
+The api is a straight mapping to the trading 212 endpoints.  
+- No liability is assumed by me for you using this library.  
+- Any trading activity you undertake using this library is solely your own responsibility. 
+- No liability will be assumed if you lose your KEY.
 
-### get_instruments()
+## Installation
+```
+$ pip install trading-212
+```
 
-## Pies
+## Creating a client
 
-### get_pies()
+You will need to create a API key from your trading 212 account. Follow trading212's instructions around usage and safeguarding this KEY.
 
-### get_pie(id)
+```
+>>> from trading212 import Client
+>>> client = Client("YOUR_API_KEY")
+```
+
+## API
+
+### Metadata
+
+#### get_exchanges()
+
+#### get_instruments()
+
+### Pies
+
+#### get_pies()
+
+#### get_pie(id)
 ```id``` int, id of pie
 
-### create_pie(dividend_cash_action, end_date, goal, icon, instrument_shares, name)
+#### create_pie(dividend_cash_action, end_date, goal, icon, instrument_shares, name)
 ```dividend_cash_action``` string, Enum: "REINVEST" "TO_ACCOUNT_CASH"
 
 ```end_date``` string, <date-time> isoformat
@@ -30,7 +54,7 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 >>> client.create_pie("REINVEST", "2019-08-24T14:15:22Z", 0, "Home", {"AAPL_US_EQ": 0.5, "MSFT_US_EQ": 0.5}, "my pie")
 ```
 
-### update_pie(id, dividend_cash_action, end_date, goal, icon, instrument_shares, name)
+#### update_pie(id, dividend_cash_action, end_date, goal, icon, instrument_shares, name)
 ```id``` int, id of pie
 
 ```dividend_cash_action``` string, Enum: "REINVEST" "TO_ACCOUNT_CASH"
@@ -49,21 +73,21 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 >>> client.update_pie(1701, "REINVEST", "2019-08-24T14:15:22Z", 0, "Home", {"AAPL_US_EQ": 0.5, "MSFT_US_EQ": 0.5}, "my pie")
 ```
 
-### delete_pie(id)
+#### delete_pie(id)
 ```id``` int, id of pie
 
-## Orders
+### Orders
 
-### get_orders()
+#### get_orders()
 
-### get_order(id)
+#### get_order(id)
 ```id``` int, id of order
 
-### delete_order(id)
+#### delete_order(id)
 ```id``` int, id of order
 
 
-### place_limit_order(limit_price, quantity, ticker, time_validity)
+#### place_limit_order(limit_price, quantity, ticker, time_validity)
 ```limit_price``` float
 
 ```quantity``` float
@@ -76,7 +100,7 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 >>> client.place_limit_order(122.31, .5, 'AAPL_US_EQ', 'GTC')
 ```
 
-### place_market_order(quantity, ticker)
+#### place_market_order(quantity, ticker)
 ```quantity``` float
 
 ```ticker``` string
@@ -86,7 +110,7 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 ```
 
 
-### place_stop_order(stop_price, quantity, ticker, time_validity)
+#### place_stop_order(stop_price, quantity, ticker, time_validity)
 ```stop_price``` float
 
 ```quantity``` float
@@ -100,7 +124,7 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 ```
 
 
-### place_stop_limit_order(limit_price, stop_price, quantity, ticker, time_validity)
+#### place_stop_limit_order(limit_price, stop_price, quantity, ticker, time_validity)
 ```limit_price``` float
 
 ```stop_price``` float
@@ -115,22 +139,22 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 >>> client.place_stop_order(122.31, 122.31, .5, 'AAPL_US_EQ', 'GTC')
 ```
 
-## Account
+### Account
 
-### get_account_cash()
+#### get_account_cash()
 
-### get_account()
+#### get_account()
 
-## Positions
+### Positions
 
-### get_positions()
+#### get_positions()
 
-### get_position(id)
+#### get_position(id)
 ```id``` int, id of position
 
-## Historical items
+### Historical items
 
-### get_order_history(cursor, ticker, limit)
+#### get_order_history(cursor, ticker, limit)
 ```cursor``` int <int64> Pagination cursor
 
 ```ticker``` string
@@ -141,7 +165,7 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 >>> client.get_order_history(1, 'AAPL_EQ_US', 25)
 ```
 
-### get_dividends(cursor, ticker, limit)
+#### get_dividends(cursor, ticker, limit)
 ```cursor``` int <int64> Pagination cursor
 
 ```ticker``` string
@@ -151,9 +175,10 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 ```
 >>> client.get_dividends(1, 'AAPL_EQ_US', 25)
 ```
-### get_exports()
 
-### get_transactions(cursor, limit)
+#### get_exports()
+
+#### get_transactions(cursor, limit)
 ```cursor``` int <int64> Pagination cursor
 
 ```limit```	int <int32> Default: 20
@@ -162,7 +187,7 @@ This is a python wrapper for the trading 212 beta API. https://t212public-api-do
 >>> client.get_transactions(1, 25)
 ```
 
-### get_export(data_included, time_from, time_to)
+#### get_export(data_included, time_from, time_to)
 ```data_included``` dict, {"includeDividends": True, "includeInterest": True, "includeOrders": True, "includeTransactions": True}
 
 ```time_from``` string, isoformat
