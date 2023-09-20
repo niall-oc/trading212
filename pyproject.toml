@@ -11,11 +11,11 @@ pythonpath = [
 ]
 
 [tool.poetry]
-documentation = "https://trading212.readthedocs.io/en/latest/"
+documentation = "https://trading-212.readthedocs.io/en/latest/"
 repository = "https://github.com/niall-oc/trading212"
 
 [project]
-name = "trading212"
+name = "trading-212"
 requires-python = ">=3.7"
 readme = "README.md"
 authors = [
