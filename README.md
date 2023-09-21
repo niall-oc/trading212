@@ -10,7 +10,7 @@ The api is a straight mapping to the trading 212 endpoints.
 
 ## Installation
 ```
-$ pip install trading-212
+$ pip install trading212-connector
 ```
 
 ## Creating a client
