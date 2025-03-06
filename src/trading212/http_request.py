@@ -3,6 +3,9 @@ import json
 
 
 class Client:
+    """
+    Trading212 http client.
+    """
     END_POINTS = dict(
         get_exchanges='/equity/metadata/exchanges',
         get_instruments='/equity/metadata/instruments',
@@ -16,21 +19,23 @@ class Client:
         delete_order='/equity/orders/{id}',
         place_limit_order='/equity/orders/limit',
         place_market_order='/equity/orders/market',
-        place_stop_order='/equity/orders/limit',
-        place_stop_limit_order='/equity/orders/limit',
+        place_stop_order='/equity/orders/stop',
+        place_stop_limit_order='/equity/orders/stop_limit',
         get_account_cash='/equity/account/cash',
         get_account='/equity/account/info',
-        get_positions='/equity/positions',
-        get_position='/equity/orders/{ticker}',
+        get_all_open_positions='/equity/portfolio',
+        search_position_by_ticker='/equity/portfolio/ticker',
+        get_position='/equity/portfolio/{ticker}',
         get_order_history='/equity/history/orders',
         get_dividends='/history/dividends',
         get_exports='/history/exports',
         get_transactions='/history/transactions',
-        get_export='/history/exports'
+        get_export_as_csv='/history/exports'
     )
 
     def __init__(self, api_key, domain=None):
         """
+        Con
         """
         self.API_KEY = api_key
         self.DOMAIN = domain or 'live.trading212.com'
@@ -46,7 +51,7 @@ class Client:
         if resp.ok:
             return resp.json()
         else:
-            raise Exception(f"{self.ERROR[resp.status_code]} - {resp.text}")
+            raise Exception(f"{resp.status_code} - {resp.text}")
 
     def _delete(self, url: str, headers: dict, params: dict = None) -> dict:
         """
@@ -56,7 +61,7 @@ class Client:
         if resp.ok:
             return resp.json()
         else:
-            raise requests.HTTPError(f"{self.ERROR[resp.status_code]} - {resp.text}")
+            raise requests.HTTPError(f"{resp.status_code} - {resp.text}")
 
     def _post(self, url: str, headers: dict, payload: dict) -> dict:
         """
@@ -259,7 +264,7 @@ class Client:
         }
         return self._get(self.END_POINTS['get_transactions'], {}, query)
 
-    def get_export(self, data_included: dict, time_from: str, time_to: str) -> dict:
+    def get_export_as_csv(self, data_included: dict, time_from: str, time_to: str) -> dict:
         """
         https://t212public-api-docs.redoc.ly/#operation/placeStopLimitOrder
         """
