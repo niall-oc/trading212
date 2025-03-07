@@ -21,7 +21,6 @@ sphinx:
   configuration: docs/source/conf.py
 
 # Enable additional Sphinx extensions
-formats:
-  - html
-  - pdf
-  - epub
+python:    
+  install:
+    - requirements: rtd_requirements.txt
