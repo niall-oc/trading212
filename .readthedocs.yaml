@@ -16,6 +16,8 @@ python:
   install:
     - method: pip
       path: .
+    - method: pip
+      name: trading212-connector  # Explicitly install the package
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
