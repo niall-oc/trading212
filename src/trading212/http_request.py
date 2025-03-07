@@ -402,7 +402,7 @@ class Client:
 
     def get_exports_as_csv(self, data_included: dict, time_from: str, time_to: str) -> dict:
         """
-        Get export as a csv file. The records in the csv file are for dates 
+        Get export as a csv file. The records in the csv file are for dates
         between time_from and time_to.
 
         https://t212public-api-docs.redoc.ly/#operation/placeStopLimitOrder
