@@ -1,11 +1,10 @@
-.. Trading212 Connector documentation master file, created by
-   sphinx-quickstart on Fri Mar  7 15:49:22 2025.
+.. Trading212-connector documentation master file, created by
+   sphinx-quickstart on Fri Mar  7 17:03:01 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Trading212 Connector documentation
+Trading212-connector documentation
 ==================================
-
 A simple http wrapper for the trading212 trading platform ( see https://t212public-api-docs.redoc.ly )
 
 

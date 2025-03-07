@@ -1,17 +1,13 @@
-# .readthedocs.yaml
-# Read the Docs configuration file
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
-# Required
+# Required version
 version: 2
 
-# Set the OS, Python version, and other tools
+# OS and Python setup
 build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
 
-# Install your package so autodoc can find it
+# Install dependencies and package
 python:
   install:
     - method: pip
@@ -19,18 +15,12 @@ python:
     - method: pip
       name: trading212-connector  # Explicitly install the package
 
-# Build documentation in the "docs/" directory with Sphinx
+# Use Sphinx to build docs
 sphinx:
   configuration: docs/source/conf.py
 
-# Optionally build your docs in additional formats such as PDF and ePub
-# formats:
-#    - pdf
-#    - epub
-
-# Optional but recommended, declare the Python requirements required
-# to build your documentation
-# See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
-python:    
-  install:
-    - requirements: rtd_requirements.txt
+# Enable additional Sphinx extensions
+formats:
+  - html
+  - pdf
+  - epub
