@@ -21,3 +21,5 @@ You will need to create a API key from your trading 212 account. Follow trading2
 >>> from trading212 import Client
 >>> client = Client("YOUR_API_KEY")
 ```
+
+For more visit [trading212.readthedocs](https://trading212.readthedocs.io/en/latest/)
