@@ -14,6 +14,11 @@ sys.path.insert(0, os.path.abspath('../../src'))
 print(f"Current working directory: {os.getcwd()}")
 print(f"Added to sys.path: {os.path.abspath('../../')}")
 
+project = 'Trading212-Connector'
+copyright = "2025, Niall O'Connor"
+author = "Niall O'Connor"
+release = '1.0'
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
